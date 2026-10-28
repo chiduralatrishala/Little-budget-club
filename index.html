@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Little Budget Club ♡</title>
+<style>
+:root{--pink:#f5bfd4;--rose:#c9688e;--ink:#4b3942;--muted:#8c7780;--cream:#fffaf7;--lilac:#e9e3fb;--mint:#dff1e6;--line:#f0dce5;--shadow:0 12px 35px #9b668018}
+*{box-sizing:border-box}body{margin:0;background:var(--cream);color:var(--ink);font-family:ui-rounded,"Trebuchet MS",system-ui,sans-serif}
+button,input,select{font:inherit}button{cursor:pointer;border:0;border-radius:14px;padding:11px 15px;background:var(--rose);color:white;font-weight:700;transition:.18s}button:hover{transform:translateY(-1px);filter:brightness(.98)}button.secondary{background:#f7e4ed;color:#8c4967}button.soft{background:#ece6fb;color:#65538d}
+.wrap{max-width:1120px;margin:auto;padding:24px 18px 50px}.top{display:flex;align-items:center;justify-content:space-between;gap:15px;margin-bottom:24px}.brand{display:flex;align-items:center;gap:12px}.logo{width:54px;height:54px;border-radius:18px;background:#f8d5e4;display:grid;place-items:center;font-size:29px;box-shadow:var(--shadow)}h1{font-size:clamp(24px,4vw,35px);margin:0;letter-spacing:-1px}.sub{color:var(--muted);font-size:13px;margin-top:4px}.month{border:1px solid var(--line);background:white;border-radius:14px;padding:10px;color:var(--ink)}
+.hero{background:linear-gradient(120deg,#f9dce8,#f0e9ff 70%,#e3f3e9);border:1px solid white;border-radius:26px;padding:26px;display:grid;grid-template-columns:1.4fr .6fr;gap:18px;align-items:center;box-shadow:var(--shadow);position:relative;overflow:hidden}.hero h2{font-size:clamp(23px,4vw,32px);margin:0 0 8px}.hero p{margin:0;color:#745f6a;line-height:1.55}.bear{font-size:76px;text-align:center;animation:bob 3s ease-in-out infinite;filter:drop-shadow(0 7px 5px #9b668022)}@keyframes bob{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-8px) rotate(3deg)}}.spark{position:absolute;right:23%;top:15px;color:#fff;font-size:25px;animation:twinkle 2s infinite}@keyframes twinkle{50%{opacity:.3;transform:scale(.8)}}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:18px 0}.stat{padding:18px;border-radius:20px;border:1px solid white;box-shadow:var(--shadow);min-width:0}.stat:nth-child(1){background:#fff0f5}.stat:nth-child(2){background:#f0ebff}.stat:nth-child(3){background:#e8f6ed}.stat:nth-child(4){background:#fff2df}.stat .label{font-size:12px;color:#816d77}.stat .value{font-size:clamp(19px,3vw,26px);font-weight:800;margin:9px 0 5px;overflow-wrap:anywhere}.stat .emoji{font-size:20px}.small{font-size:12px;color:var(--muted)}
+.progressbox{background:white;border:1px solid var(--line);border-radius:18px;padding:17px;margin-bottom:18px}.progress-head{display:flex;justify-content:space-between;gap:10px;font-size:13px;margin-bottom:10px}.track{height:12px;border-radius:99px;background:#f7e9ef;overflow:hidden}.bar{height:100%;width:0;background:linear-gradient(90deg,#f0a9c7,#bba8ed);border-radius:99px;transition:width .35s}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.panel{background:white;border:1px solid var(--line);border-radius:22px;padding:21px;box-shadow:var(--shadow);min-width:0}.panel h3{margin:0 0 5px;font-size:20px}.desc{font-size:12px;color:var(--muted);margin-bottom:18px}.field{display:flex;flex-direction:column;gap:7px;margin-bottom:13px}.field label{font-size:12px;font-weight:700;color:#806b76}.field input,.field select{width:100%;padding:12px;border:1px solid var(--line);border-radius:13px;background:#fffafd;color:var(--ink);outline:none}.field input:focus,.field select:focus{border-color:#d88dac;box-shadow:0 0 0 3px #f8dce8}.row2{display:grid;grid-template-columns:1fr 1fr;gap:11px}.actions{display:flex;gap:9px;flex-wrap:wrap}.result{margin-top:13px;border-radius:15px;padding:14px;background:#fff0f5;line-height:1.5;font-size:13px}.result.good{background:#e8f6ed}.result.warn{background:#fff2df}.result.bad{background:#ffe8e8}.list{margin-top:18px}.item{display:flex;justify-content:space-between;gap:12px;align-items:center;border-bottom:1px solid #f6eaf0;padding:12px 0}.item:last-child{border-bottom:0}.item-name{font-weight:700;font-size:14px}.item-meta{font-size:11px;color:var(--muted);margin-top:4px}.amount{font-weight:800;white-space:nowrap}.delete{background:transparent;color:#b56c87;padding:5px 8px;font-size:12px}.empty{text-align:center;padding:20px;color:var(--muted);font-size:13px}.footer{text-align:center;font-size:12px;color:#a18b95;padding-top:24px}.pill{display:inline-block;padding:5px 9px;background:#fff;border-radius:99px;font-size:11px;color:#8c4967;margin-top:12px}
+@media(max-width:760px){.hero{grid-template-columns:1fr .35fr;padding:20px}.bear{font-size:54px}.cards{grid-template-columns:1fr 1fr}.grid{grid-template-columns:1fr}.top{align-items:flex-start}.month{max-width:145px}.wrap{padding:16px 12px 35px}}
+@media(max-width:400px){.hero{grid-template-columns:1fr}.bear{display:none}.row2{grid-template-columns:1fr}.top{flex-direction:column}}
+</style>
+</head>
+<body>
+<main class="wrap">
+<header class="top">
+  <div class="brand"><div class="logo">🧸</div><div><h1>Little Budget Club ♡</h1><div class="sub">soft life, smart spending ✿</div></div></div>
+  <input class="month" id="month" type="month" aria-label="Budget month">
+</header>
+<section class="hero">
+  <div><h2>A little plan for your money 🌷</h2><p>Spend with intention, save for your wishlist, and make every rupee count. You're doing lovely!</p><span class="pill">♡ your money diary ♡</span></div>
+  <div class="bear" aria-label="cute bear">🐻‍❄️💕</div><div class="spark">✦</div>
+</section>
+<section class="cards">
+  <div class="stat"><div class="emoji">💗</div><div class="label">MONTHLY BUDGET</div><div class="value" id="budgetStat">₹0</div><div class="small">your spending limit</div></div>
+  <div class="stat"><div class="emoji">🛍️</div><div class="label">TOTAL SPENT</div><div class="value" id="spentStat">₹0</div><div class="small">all recorded purchases</div></div>
+  <div class="stat"><div class="emoji">🌱</div><div class="label">LEFT TO SPEND</div><div class="value" id="leftStat">₹0</div><div class="small">keep a little cushion</div></div>
+  <div class="stat"><div class="emoji">🎀</div><div class="label">PURCHASE COUNT</div><div class="value" id="countStat">0</div><div class="small">items in your diary</div></div>
+</section>
+<section class="progressbox"><div class="progress-head"><strong>Monthly spending progress</strong><span id="progressText">0% used</span></div><div class="track"><div class="bar" id="bar"></div></div><div class="small" id="progressHint" style="margin-top:9px">Set your budget to begin ✨</div></section>
+<div class="grid">
+  <section class="panel">
+    <h3>💌 Set your budget</h3><div class="desc">A fresh month, a fresh little plan.</div>
+    <form id="budgetForm"><div class="field"><label for="budget">Monthly budget (₹)</label><input id="budget" type="number" min="0.01" step="0.01" placeholder="e.g. 15000" required></div><button type="submit">Save my budget ♡</button></form>
+    <div class="result" id="budgetNote">Your budget will appear here. A small cushion for bills and savings is always a good idea.</div>
+  </section>
+  <section class="panel">
+    <h3>🛒 Can I afford this?</h3><div class="desc">A tiny reality check before you tap “buy”.</div>
+    <form id="checkForm">
+      <div class="field"><label for="wishName">What are you wishing for?</label><input id="wishName" placeholder="e.g. cute headphones" required></div>
+      <div class="row2"><div class="field"><label for="wishPrice">Price (₹)</label><input id="wishPrice" type="number" min="0.01" step="0.01" placeholder="1999" required></div><div class="field"><label for="reserve">Keep aside (₹)</label><input id="reserve" type="number" min="0" step="0.01" value="0" required></div></div>
+      <button type="submit" class="soft">Check my wishlist ✨</button>
+    </form><div id="wishResult" class="result">Your bear bestie will help you decide 🐻</div>
+  </section>
+  <section class="panel">
+    <h3>🧾 Add a purchase</h3><div class="desc">Every coffee, treat and big purchase can go here.</div>
+    <form id="purchaseForm">
+      <div class="field"><label for="itemName">Item name</label><input id="itemName" placeholder="e.g. lunch, skincare, books" required></div>
+      <div class="row2"><div class="field"><label for="itemPrice">Amount (₹)</label><input id="itemPrice" type="number" min="0.01" step="0.01" placeholder="250" required></div><div class="field"><label for="category">Category</label><select id="category"><option>Shopping</option><option>Food</option><option>Travel</option><option>Health</option><option>Bills</option><option>Education</option><option>Beauty</option><option>Other</option></select></div></div>
+      <div class="row2"><div class="field"><label for="itemDate">Date</label><input id="itemDate" type="date" required></div><div class="field"><label for="kind">Purchase type</label><select id="kind"><option value="single">Single item</option><option value="multiple">Multiple items / cart</option></select></div></div>
+      <button type="submit">Add to my diary +</button>
+    </form><div id="purchaseNote" class="small" style="margin-top:12px">Purchases save in this browser on this device.</div>
+  </section>
+  <section class="panel">
+    <h3>🌸 My spending diary</h3><div class="desc">Your purchases for the selected month.</div>
+    <div id="purchaseList" class="list"><div class="empty">No purchases yet. Add your first one above ♡</div></div>
+    <div class="actions"><button type="button" class="secondary" id="exportBtn">Download CSV ↓</button><button type="button" class="secondary" id="clearBtn">Clear this month</button></div>
+  </section>
+</div>
+<div class="footer">Made with a little love and a lot of pink ♡ · Your entries stay in this browser.</div>
+</main>
+<script>
+const $ = id => document.getElementById(id);
+const now = new Date();
+const monthKey = d => d.slice(0,7);
+const dateToday = `${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}-${String(now.getDate()).padStart(2,'0')}`;
+$('month').value = monthKey(dateToday);
+$('itemDate').value = dateToday;
+let records = {};
+let budgetByMonth = {};
+try { records = JSON.parse(localStorage.getItem('littleBudgetRecords') || '{}'); budgetByMonth = JSON.parse(localStorage.getItem('littleBudgetAmounts') || '{}'); } catch(e) {}
+let lastWish = null;
+const currentMonth = () => $('month').value || monthKey(dateToday);
+const money = n => new Intl.NumberFormat('en-IN',{style:'currency',currency:'INR',maximumFractionDigits:2}).format(n || 0);
+const items = () => records[currentMonth()] || [];
+const budget = () => Number(budgetByMonth[currentMonth()] || 0);
+const spent = () => items().reduce((s,x)=>s+x.price,0);
+function save(){localStorage.setItem('littleBudgetRecords',JSON.stringify(records));localStorage.setItem('littleBudgetAmounts',JSON.stringify(budgetByMonth));}
+function render(){
+ const b=budget(), s=spent(), left=b-s, pct=b>0?s/b*100:0;
+ $('budgetStat').textContent=money(b); $('spentStat').textContent=money(s); $('leftStat').textContent=money(left); $('countStat').textContent=items().reduce((n,x)=>n+x.count,0);
+ $('progressText').textContent=(b>0?Math.round(pct):0)+'% used'; $('bar').style.width=Math.min(100,Math.max(0,pct))+'%';
+ $('progressHint').textContent=b<=0?'Set your budget to begin ✨':left<0?'Oops, you are over budget by '+money(-left)+'. Pause non-essential spending.':left<=b*.2?'You have '+money(left)+' left. Keep an eye on the little spends.':'Lovely! '+money(left)+' remains for the month.';
+ $('budget').value=b||'';
+ const note=$('budgetNote'); note.className='result '+(left<0?'bad':left<=b*.2&&b>0?'warn':'good');
+ note.textContent=b<=0?'Add your monthly budget to start tracking.':left<0?'You are over budget by '+money(-left)+'. Consider delaying optional purchases.':'Your current balance is '+money(left)+'. Remember to leave room for bills and savings.';
+ const list=$('purchaseList'); list.innerHTML='';
+ if(!items().length){list.innerHTML='<div class="empty">No purchases yet. Add your first one above ♡</div>';return;}
+ [...items()].reverse().forEach(x=>{const el=document.createElement('div');el.className='item';const leftSide=document.createElement('div');const nm=document.createElement('div');nm.className='item-name';nm.textContent=x.name;const meta=document.createElement('div');meta.className='item-meta';meta.textContent=`${x.date} · ${x.category} · ${x.count} item${x.count===1?'':'s'}`;leftSide.append(nm,meta);const right=document.createElement('div');right.style.textAlign='right';const amt=document.createElement('div');amt.className='amount';amt.textContent=money(x.price);const del=document.createElement('button');del.className='delete';del.textContent='Remove ×';del.type='button';del.onclick=()=>{records[currentMonth()]=items().filter(y=>y.id!==x.id);save();render();};right.append(amt,del);el.append(leftSide,right);list.append(el);});
+}
+$('budgetForm').addEventListener('submit',e=>{e.preventDefault();const n=Number($('budget').value);if(!(n>0)){alert('Please enter a budget greater than zero.');return;}budgetByMonth[currentMonth()]=n;save();render();});
+$('month').addEventListener('change',()=>{lastWish=null;$('wishResult').className='result';$('wishResult').textContent='Choose an item and check again for this month ♡';render();});
+$('purchaseForm').addEventListener('submit',e=>{e.preventDefault();const price=Number($('itemPrice').value);if(!(price>0)){alert('Please enter a price greater than zero.');return;}const b=budget(), left=b-spent();const count=$('kind').value==='multiple'?Number(prompt('How many items are in this cart?','2')):1;if(!Number.isFinite(count)||count<1||!Number.isInteger(count)){alert('Enter a valid item count.');return;}if(price>left && b>0 && !confirm('This purchase is above your current remaining balance. Add it anyway?'))return;records[currentMonth()]=items();records[currentMonth()].push({id:Date.now()+Math.random(),name:$('itemName').value.trim(),price,category:$('category').value,date:$('itemDate').value||dateToday,count});save();e.target.reset();$('itemDate').value=dateToday;render();});
+$('checkForm').addEventListener('submit',e=>{e.preventDefault();const name=$('wishName').value.trim(),price=Number($('wishPrice').value),reserve=Number($('reserve').value||0),left=budget()-spent(),available=left-reserve;lastWish={name,price,reserve};const out=$('wishResult');if(!(price>0)){out.className='result bad';out.textContent='Please enter a price above zero.';}else if(budget()<=0){out.className='result warn';out.textContent='Set your monthly budget first, then I can check '+name+' ♡';}else if(price<=available){out.className='result good';out.textContent=`♡ Yes, ${name} fits! After keeping ${money(reserve)} aside and buying it, you would have ${money(available-price)} left. Check upcoming bills before deciding.`;}else if(price<=left){out.className='result warn';out.textContent=`You could technically afford ${name}, but it would use money you planned to keep aside. Better to wait or save for it 🌷`; }else{out.className='result bad';out.textContent=`Not comfortably yet 💗 You would be short by ${money(price-left)} (or ${money(price-available)} while protecting your reserve). Consider saving for another month.`;}});
+$('exportBtn').addEventListener('click',()=>{const rows=[['Date','Item','Category','Amount INR','Item count'],...items().map(x=>[x.date,x.name,x.category,x.price,x.count])];const csv=rows.map(r=>r.map(v=>'"'+String(v).replaceAll('"','""')+'"').join(',')).join('\r\n');const blob=new Blob([csv],{type:'text/csv;charset=utf-8;'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=`budget-${currentMonth()}.csv`;a.click();URL.revokeObjectURL(url);});
+$('clearBtn').addEventListener('click',()=>{if(confirm('Remove all purchases for '+currentMonth()+'? This cannot be undone.')){records[currentMonth()]=[];save();render();}});
+render();
+</script>
+</body>
+</html>
